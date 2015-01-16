@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AdminRosterRequest>
+	<payloadID>IAP0.6246127453807323</payloadID>
+	<sourceSystem>IAP</sourceSystem>
+	<kaplanAdminRequests>
+		<kaplanAdminRequest>
+			<adminID>1679</adminID>
+			<firstName>Paula</firstName>
+			<lastName>Russo</lastName>
+			<email>PRusso10@schools.nyc.gov</email>
+			<password>W9/cxxHDxxlSw6mfRoDd1w==</password>
+			<institutions>
+				<institution>
+					<state>Other</state>
+					<district>New York, Dept of Education</district>
+					<school>Is 281 Joseph B Cavallaro</school>
+					<clazz>IS 281 TSR 2012</clazz>
+					<products>
+						<product>
+							<productCode>K12TSR12</productCode>
+							<expirationDate>01/27/2013</expirationDate>
+						</product>
+					</products>
+				</institution>
+			</institutions>
+		</kaplanAdminRequest>
+	</kaplanAdminRequests>
+</AdminRosterRequest>
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AdminRosterRequest>
+	<payloadID>IAP0.15438476630552123</payloadID>
+	<sourceSystem>IAP</sourceSystem>
+	<kaplanAdminRequests>
+		<kaplanAdminRequest>
+			<adminID>1680</adminID>
+			<firstName>Raymond</firstName>
+			<lastName>Tran</lastName>
+			<email>Rtran@schools.nyc.gov</email>
+			<password>NRLxzDNfvij+kcayt/dOGQ==</password>
+			<institutions>
+				<institution>
+					<state>Other</state>
+					<district>New York, Dept of Education</district>
+					<school>Is 281 Joseph B Cavallaro</school>
+					<clazz>IS 281 TSR 2012</clazz>
+					<products>
+						<product>
+							<productCode>K12TSR12</productCode>
+							<expirationDate>01/27/2013</expirationDate>
+						</product>
+					</products>
+				</institution>
+			</institutions>
+		</kaplanAdminRequest>
+	</kaplanAdminRequests>
+</AdminRosterRequest>
