@@ -1,10 +1,7 @@
-
-.classpath
-
-.project
+/bin/
 
 .settings/org.eclipse.jdt.core.prefs
 
-*.class
+.project
 
-bin/parts/roster.xml
+.classpath
