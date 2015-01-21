@@ -1,4 +1,4 @@
-package minify;
+package parts;
 
 import java.io.File;
 import java.io.IOException;
