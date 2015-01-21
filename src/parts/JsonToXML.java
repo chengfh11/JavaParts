@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -52,7 +52,6 @@ public class JsonToXML
 
 		System.out.println(question.toString());
 
-		
 		String xml = XML.toString(json);
 
 		xml = xml + "</gradItems>";

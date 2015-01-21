@@ -105,7 +105,7 @@ public class ApplyWiseTest
 		{
 			String displayCode = "";
 			// System.out.println("code: "+string);
-			// System.out.println("string.split: "+string.split("\\.").length);
+			// System.out.println("string.split: " + string.split("\\.").length);
 			if (string.split("\\.").length > 0)
 			{
 				for (String st : string.split("\\."))

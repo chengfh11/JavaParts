@@ -1,11 +1,11 @@
-package junk;
+package parts;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class hierarchyTree
+public class HierarchyTree
 {
 
 	private static class Data

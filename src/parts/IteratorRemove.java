@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +10,7 @@ import java.util.List;
  * 
  * @author http://javarevisited.blogspot.com
  */
-public class JunkTest
+public class IteratorRemove
 {
 
 	public static void main(String args[])

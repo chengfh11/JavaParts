@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
@@ -16,7 +16,7 @@ public class PasswordDecrypter {
 		decryptor.setPassword(key);
 		String password = decryptor.decrypt(encryptedPassword);
 		//System.out.println(decryptor.encrypt("kaplan"));
-		//System.out.println(password);
+		// System.out.println(password);
 		return password;
 
 	}

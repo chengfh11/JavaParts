@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;

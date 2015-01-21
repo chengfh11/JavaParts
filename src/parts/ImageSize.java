@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import javax.swing.ImageIcon;
 

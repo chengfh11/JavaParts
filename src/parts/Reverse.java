@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,9 +11,7 @@ public class Reverse {
     public static void main(String[] args) throws Exception {
 
 	if (args.length != 2) {
-	    System.err.println("Usage:  java Reverse " +
-                               "http://<location of your servlet/script>" + 
-                               " string_to_reverse");
+			System.err.println("Usage:  java Reverse " + "http://<location of your servlet/script>" + " string_to_reverse");
 	    System.exit(1);
 	}
 

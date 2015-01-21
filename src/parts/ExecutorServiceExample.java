@@ -1,9 +1,17 @@
-package junk;
+package parts;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.StringWriter;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
 public class ExecutorServiceExample
 {
@@ -20,8 +28,8 @@ public class ExecutorServiceExample
 		{
 
 			String url = hostList[i];
-			Runnable worker = new MyRunnable(url);
-			executor.execute(worker);
+			// Runnable worker = new Threading(url);
+			// executor.execute(worker);
 		}
 		executor.shutdown();
 		// Wait until all threads are finish
@@ -32,39 +40,37 @@ public class ExecutorServiceExample
 		System.out.println("\nFinished all threads");
 	}
 
-	public static class MyRunnable implements Runnable
+	public class Threading implements Callable<Document>
 	{
 		private final String url;
 
-		MyRunnable(String url)
+		public Threading(String url)
 		{
 			this.url = url;
 		}
 
-		@Override
-		public void run()
+		public Document call() throws Exception
 		{
-
-			String result = "";
-			int code = 200;
+			Document doc = null;
 			try
 			{
-				URL siteURL = new URL(url);
-				HttpURLConnection connection = (HttpURLConnection) siteURL.openConnection();
-				connection.setRequestMethod("GET");
-				connection.connect();
+				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder builder = factory.newDocumentBuilder();
+				TransformerFactory tf = TransformerFactory.newInstance();
+				Transformer transformer = tf.newTransformer();
+				StringWriter writer = new StringWriter();
+				// Reader reader = HttpInvoker.execute(url);
 
-				code = connection.getResponseCode();
-				if (code == 200)
-				{
-					result = "Green\t";
-				}
+				doc = builder.parse(new InputSource(reader));
+				doc.getDocumentElement().normalize();
 			}
 			catch (Exception e)
 			{
-				result = "->Red<-\t";
+				e.printStackTrace();
+				// if there is any issue with any of the thread execution, return other thread results
+				return doc;
 			}
-			System.out.println(url + "\t\tStatus:" + result);
+			return doc;
 		}
 	}
 }

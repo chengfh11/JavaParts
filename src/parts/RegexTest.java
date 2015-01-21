@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

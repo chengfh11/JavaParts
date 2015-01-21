@@ -1,4 +1,4 @@
-package junk;
+package parts;
 
 /**
  * Enumeration for bastardized HTTP 1.1 Response codes used
