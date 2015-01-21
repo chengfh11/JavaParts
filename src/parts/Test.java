@@ -6,16 +6,24 @@ import java.util.List;
 
 public class Test
 {
+
 	public static void main(String[] args)
 	{
 		System.out.println("Hello im here");
+
+		// accessing another class with main method
+		HttpConnection test = new HttpConnection();
+		System.out.println(test.printout("going there and back"));
+
+		String[] argsTest = {};
+		test.httpGet();
 
 		// Print out current time
 		System.out.println(new Timestamp(System.currentTimeMillis()));
 
 		// Split string into array
 		String urlString = "www.medschoolpulse.com/feed  ,blog.kaplanlsat.com/feed,http://gmat.kaptest.com/feed,http://gre.kaptest.com/feed,http://blog.kaplansatact.com/feed,http://www.residencysecrets.com/feed,http://www.medschoolinsight.com/feed";
-		List<String> result = splitArguments(urlString,",");
+		List<String> result = splitArguments(urlString, ",");
 		for (String x : result)
 		{
 			System.out.println(">" + x + "<");
@@ -45,4 +53,5 @@ public class Test
 		}
 		return urlList;
 	}
+
 }
