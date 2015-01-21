@@ -1,17 +1,12 @@
 package parts;
 
-import java.io.StringWriter;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
+import java.util.concurrent.Future;
 
 public class ExecutorServiceExample
 {
@@ -20,57 +15,45 @@ public class ExecutorServiceExample
 	public static void main(String args[]) throws Exception
 	{
 		ExecutorService executor = Executors.newFixedThreadPool(MYTHREADS);
+		List<Future<String>> futureList = new ArrayList<Future<String>>();
+
 		String[] hostList = { "http://crunchify.com", "http://yahoo.com", "http://www.ebay.com", "http://google.com", "http://www.example.co", "https://paypal.com", "http://bing.com/",
 				"http://techcrunch.com/", "http://mashable.com/", "http://thenextweb.com/", "http://wordpress.com/", "http://wordpress.org/", "http://example.com/", "http://sjsu.edu/",
 				"http://ebay.co.uk/", "http://google.co.uk/", "http://www.wikipedia.org/", "http://en.wikipedia.org/wiki/Main_Page" };
 
-		for (int i = 0; i < hostList.length; i++)
-		{
+		// Create instance of outter class, optional if the inner classs is static
+		// ExecutorServiceExample outer = new ExecutorServiceExample();
 
-			String url = hostList[i];
-			// Runnable worker = new Threading(url);
-			// executor.execute(worker);
+		for (String url : hostList)
+		{
+			Future<String> future = executor.submit(new Threading(url));
+			futureList.add(future);
 		}
 		executor.shutdown();
-		// Wait until all threads are finish
-		while (!executor.isTerminated())
-		{
 
+		for (Future<String> x : futureList)
+		{
+			// Note: .get() method return the object itself, this case string
+			System.out.println(">" + x.get() + "<");
 		}
+
 		System.out.println("\nFinished all threads");
+
 	}
 
-	public class Threading implements Callable<Document>
+	public static class Threading implements Callable<String>
 	{
 		private final String url;
 
-		public Threading(String url)
+		private Threading(String url)
 		{
 			this.url = url;
 		}
 
-		public Document call() throws Exception
+		public String call() throws Exception
 		{
-			Document doc = null;
-			try
-			{
-				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				DocumentBuilder builder = factory.newDocumentBuilder();
-				TransformerFactory tf = TransformerFactory.newInstance();
-				Transformer transformer = tf.newTransformer();
-				StringWriter writer = new StringWriter();
-				// Reader reader = HttpInvoker.execute(url);
-
-				doc = builder.parse(new InputSource(reader));
-				doc.getDocumentElement().normalize();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-				// if there is any issue with any of the thread execution, return other thread results
-				return doc;
-			}
-			return doc;
+			String time = new Timestamp(System.currentTimeMillis()).toString();
+			return time;
 		}
 	}
 }
