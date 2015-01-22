@@ -38,20 +38,19 @@ public class Test
 	 * @param splitKey
 	 * @return
 	 */
-	private static List<String> splitArguments(String urls, String splitKey)
+	private static List<String> splitArguments(String sList, String splitKey)
 	{
-		List<String> urlList = new ArrayList<String>();
+		List<String> list = new ArrayList<String>();
 
-		for (String url : urls.split(splitKey))
+		for (String str : sList.split(splitKey))
 		{
-			url = url.trim();
-			if (!url.contains("http"))
+			str = str.trim();
+			if (!str.contains("http"))
 			{
-				url = "http://" + url;
+				str = "http://" + str;
 			}
-			urlList.add(url);
+			list.add(str);
 		}
-		return urlList;
+		return list;
 	}
-
 }
