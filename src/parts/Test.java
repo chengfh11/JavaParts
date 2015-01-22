@@ -15,6 +15,7 @@ public class Test
 		HttpConnection test = new HttpConnection();
 		System.out.println(test.printout("going there and back"));
 
+		//accessing basic http get method
 		test.httpGet();
 
 		// Print out current time
